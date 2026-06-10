@@ -1,6 +1,7 @@
 ---
 import Meta from "../components/Meta.astro"
 import Header from "../components/Header.astro"
+import Image from "astro/components/Image.astro"
 const photos = [
 	{id: 1, image: "src/images/Field.jpg", alt: "An image of a girl in a field" },
 	{id: 2, image: "src/images/SmellingFlower.jpg", alt: "An image of a girl smelling a flower" },
@@ -8,45 +9,69 @@ const photos = [
 	{id: 4, image: "", alt: "" },
 	{id: 5, image: "", alt: "" },
 ]
-
 const boxes = [
 	{id: 1},
 	{id: 2},
 	{id: 3}
 ]
-
 ---
 
 <style>
+  html,
+  body {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    overflow-y: scroll;
+    overflow-x: hidden;
+  }
+
+  .rotated-page {
+    position: absolute;
+    top: 970px;
+    left: 0;
+    width: 100vh;
+    height: 100vw;
+    transform: rotate(-90deg);
+    transform-origin: top left;
+    overflow-y: scroll;
+    overflow-x: hidden;
+  }
+
   .image-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding: 2rem;
+  }
+  .Chicken{
+	transform: rotate(90deg)
   }
 
   .image-grid img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+    width: 80vh;
+    height: auto;
     display: block;
   }
 </style>
 
-<Meta>
-<Header/>
-<div>
-	<div class="image-grid">
-		{boxes.map((box) => {
-  		const photo = photos.find((photo) => photo.id === box.id);
-		return (
-		
-		<article>
-      		<img
-        	src={photo?.image}
-        	alt=""
-     		 />
-    	</article>
-		);
-		})}
-	</div>
+<Meta />
+
+<div class="rotated-page">
+  <Header />
+
+  <div class="image-grid">
+    {boxes.map((box) => {
+      const photo = photos.find((photo) => photo.id === box.id);
+
+      return (
+        <article class="Chicken">
+          <img
+            src={photo?.image}
+            alt={photo?.alt}
+          />
+        </article>
+      );
+    })}
+  </div>
 </div>
