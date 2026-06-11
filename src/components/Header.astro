@@ -1,61 +1,63 @@
-
-
-
 <style>
-.middle-bar{
-    text-align: center;
-    transform: rotate(90deg);
-    transform-origin: center;
-    width: 80px;
-    margin-left: 450px;
+.middle-bar {
+  position: fixed;
+  height: 100vh;
+  width: 150px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  z-index: 10;
+  margin-left: 30px;
 }
 
-.small-image img{
-    height: 50px;
-    width: 50px;
-    display: block;
-    object-fit: cover;
-    margin: 0 auto;
-    justify-content: center;
+.small-image img {
+  height: 50px;
+  width: 50px;
+  display: block;
+  object-fit: cover;
+  margin: 0 auto;
+  border-radius: 50%;
 }
 
 nav {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem; 
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin-top: 20px;
 }
 
 nav a {
-    color: black;
-    text-decoration: none;
-
-    display: inline-block;
-    padding: 0 1px;
+  color: black;
+  text-decoration: none;
+  display: inline-block;
+  padding: 0 1px;
+  width: 80px;
+  text-align: center;
 }
 
 nav a::after {
-    content: "";
-    display: block;
-    width: 80px;
-    height: 1px;
-    background: black;
-    margin-top: 6px;
+  content: "";
+  display: block;
+  width: 100%;
+  height: 1px;
+  background: black;
+  margin-top: 6px;
 }
-
 </style>
 
-
-
 <header class="middle-bar">
-    <div class="small-image">
-        <a href="/index">
-            <img src="src/images/TreeSmile.jpg" alt="">
-        </a>
-    </div>
-
-    <nav class="boxes-stuff">
-        <a href="/albums">Albums</a>
-        <a href="/about">About</a>
-        <a href="/contact">Contact</a>
-    </nav>
+  <div class="small-image">
+    <a href="/index">
+      <img src="src/images/TreeSmile.jpg" alt="">
+    </a>
+  </div>
+  <nav class="boxes-stuff">
+    <a href="/albums">Albums</a>
+    <a href="/about">About</a>
+    <a href="/contact">Contact</a>
+  </nav>
 </header>

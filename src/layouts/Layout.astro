@@ -1,0 +1,43 @@
+---
+import '../styles/global.css'
+---
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="" />
+    <link rel="icon" href="/favicon.ico" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Zenith | Photography</title>
+  </head>
+  <body>
+    <slot />
+    <script>
+      let velocity  = 0;
+      let isGliding = false;
+
+      const SENSITIVITY = 0.1; 
+      const FRICTION    = 0.96;
+
+      document.addEventListener("wheel", (e) => {
+        e.preventDefault();
+        velocity += e.deltaY * SENSITIVITY;
+        if (!isGliding) {
+          isGliding = true;
+          requestAnimationFrame(glide);
+        }
+      }, { passive: false });
+
+      function glide() {
+        if (Math.abs(velocity) < 0.5) {
+          velocity  = 0;
+          isGliding = false;
+          return;
+        }
+        document.body.scrollLeft += velocity;
+        velocity *= FRICTION;
+        requestAnimationFrame(glide);
+      }
+    </script>
+  </body>
+</html>

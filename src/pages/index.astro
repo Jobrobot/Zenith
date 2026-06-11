@@ -1,77 +1,36 @@
 ---
-import Meta from "../components/Meta.astro"
+import Meta from "../layouts/Layout.astro"
 import Header from "../components/Header.astro"
-import Image from "astro/components/Image.astro"
-const photos = [
-	{id: 1, image: "src/images/Field.jpg", alt: "An image of a girl in a field" },
-	{id: 2, image: "src/images/SmellingFlower.jpg", alt: "An image of a girl smelling a flower" },
-	{id: 3, image: "src/images/TreeSmile.jpg", alt: "An image of a girl next to a tree smiling" },
-	{id: 4, image: "", alt: "" },
-	{id: 5, image: "", alt: "" },
-]
-const boxes = [
-	{id: 1},
-	{id: 2},
-	{id: 3}
-]
+import { Image } from "astro:assets"
+import Img1 from '../images/Field.jpg'
+import Img2 from '../images/SmellingFlower.jpg'
+import Img3 from '../images/TreeSmile.jpg'
+import Img4 from '../images/PurpleFlowers.jpg'
+import Img5 from '../images/PinkTree.jpg'
+import Img6 from '../images/ColorBlobs.jpg'
+
 ---
-
-<style>
-  html,
-  body {
-    margin: 0;
-    width: 100%;
-    height: 100%;
-    overflow-y: scroll;
-    overflow-x: hidden;
-  }
-
-  .rotated-page {
-    position: absolute;
-    top: 970px;
-    left: 0;
-    width: 100vh;
-    height: 100vw;
-    transform: rotate(-90deg);
-    transform-origin: top left;
-    overflow-y: scroll;
-    overflow-x: hidden;
-  }
-
-  .image-grid {
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-    padding: 2rem;
-  }
-  .Chicken{
-	transform: rotate(90deg)
-  }
-
-  .image-grid img {
-    width: 80vh;
-    height: auto;
-    display: block;
-  }
-</style>
-
+<Header/>
 <Meta />
-
-<div class="rotated-page">
-  <Header />
-
+<div class="gallery-container">
   <div class="image-grid">
-    {boxes.map((box) => {
-      const photo = photos.find((photo) => photo.id === box.id);
-
-      return (
-        <article class="Chicken">
-          <img
-            src={photo?.image}
-            alt={photo?.alt}
-          />
-        </article>
-      );
-    })}
+    <div class="image-wrap">
+      <Image src={Img1} alt="A young girl twirling in a field" height={700} width={550}/>
+    </div>
+    <div class="image-wrap">
+      <Image src={Img2} alt="A young girl smelling a flower" height={700} width={550}/>
+    </div>
+    <div class="image-wrap">
+      <Image src={Img3} alt="A young girl shining her bright smile" height={700} width={550}/>
+    </div>
+    <div class="image-wrap">
+      <Image src={Img4} alt="Beautiful pink tree with a sky in the back" height={700} width={550}/>
+    </div>
+    <div class="image-wrap">
+      <Image src={Img5} alt="Nice patch of flowers, purple, red, and pink" height={700} width={550}/>
+    </div>
+    <div class="image-wrap">
+      <Image src={Img6} alt="Shadows of colorful glass sprayed on to the concrete" height={700} width={550}/>
+    </div>
   </div>
 </div>
