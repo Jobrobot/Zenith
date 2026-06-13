@@ -3,6 +3,15 @@ import '../styles/global.css'
 ---
 <html lang="en">
   <head>
+    <script is:inline>
+      (function() {
+        const stored = localStorage.getItem("theme");
+        const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+        if (stored === "dark" || (!stored && prefersDark)) {
+          document.documentElement.classList.add("dark");
+        }
+      })();
+    </script>
     <meta charset="utf-8" />
     <link rel="icon" type="image/svg+xml" href="" />
     <link rel="icon" href="/favicon.ico" />
@@ -15,10 +24,8 @@ import '../styles/global.css'
     <script>
       let velocity  = 0;
       let isGliding = false;
-
-      const SENSITIVITY = 0.1; 
+      const SENSITIVITY = .1; 
       const FRICTION    = 0.96;
-
       document.addEventListener("wheel", (e) => {
         e.preventDefault();
         velocity += e.deltaY * SENSITIVITY;
@@ -27,7 +34,6 @@ import '../styles/global.css'
           requestAnimationFrame(glide);
         }
       }, { passive: false });
-
       function glide() {
         if (Math.abs(velocity) < 0.5) {
           velocity  = 0;

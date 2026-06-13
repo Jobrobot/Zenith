@@ -1,20 +1,27 @@
 @import "tailwindcss";
 
 html {
+  background-color: #ffffff;
+  color: #000000;
   overflow-x: hidden;
+}
+html.dark {
+  background-color: #0f172a;
+  color: #f1f5f9;
 }
 
 body {
   overflow-x: auto;
   overflow-y: hidden;
   scrollbar-width: none;
+  background-color: hsla(189, 100%, 96%, 0.802);
 }
 
 .gallery-container {
   display: flex;
   align-items: center;
   height: 100vh;
-  padding-left: 120px;
+  padding-left: 160px;
   width: max-content;
   z-index: 0;
 }
@@ -23,4 +30,172 @@ body {
   display: flex;
   align-items: center;
   gap: 2rem;
+}
+
+.middle-bar {
+  position: fixed;
+  height: 100vh;
+  width: 170px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: hsla(190, 100%, 86%, 0.9);
+  backdrop-filter: blur(6px);
+  z-index: 10;
+}
+
+.small-image img {
+  height: 100px;
+  width: 100px;
+  display: block;
+  object-fit: cover;
+  margin: 0 auto;
+  border-radius: 50%;
+}
+
+nav {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+ul a {
+  color: black;
+  text-decoration: none;
+  display: inline-block;
+  padding: 0 1px;
+  width: 120px;
+  text-align: center;
+}
+
+.dropbtn {
+  color: black;
+  display: inline-block;
+  width: 120px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+}
+
+.dropdown-end {
+  height: 1px;
+  background: black;
+  margin-top: 7px;
+}
+
+.button-distance {
+  margin-top: 5px;
+}
+
+.header {
+  color: gray;
+}
+
+.header-distance {
+  background: black;
+  height: 1px;
+}
+
+.middle-bar {
+  position: fixed;
+  height: 100vh;
+  width: 170px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: hsla(190, 100%, 86%, 0.9);
+  backdrop-filter: blur(6px);
+  z-index: 10;
+}
+
+.small-image img {
+  height: 100px;
+  width: 100px;
+  display: block;
+  object-fit: cover;
+  margin: 0 auto;
+  border-radius: 50%;
+}
+nav {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+ul a {
+  color: black;
+  text-decoration: none;
+  display: inline-block;
+  padding: 0 1px;
+  width: 120px;
+  text-align: center;
+}
+.dropbtn {
+  color: black;
+  display: inline-block;
+  width: 120px;
+  text-align: center;
+  cursor: pointer;
+}
+.dropdown-content {
+  display: none;
+  position: absolute;
+}
+.dropdown-end {
+  height: 1px;
+  background: black;
+  margin-top: 7px;
+}
+.button-distance {
+  margin-top: 5px;
+}
+.header {
+  color: gray;
+}
+.header-distance {
+  background: black;
+  height: 1px;
+}
+.theme-toggle {
+  padding: 8px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  border: 1px solid #ccc;
+  background: #e2e8f0;
+  color: #1e293b;
+  margin-top: 10px;
+}
+
+:global(html.dark) {
+  background: #0f172a;
+  color: #f1f5f9;
+}
+:global(html.dark) .middle-bar {
+  background: hsla(220, 30%, 15%, 0.9);
+}
+:global(html.dark) ul a,
+:global(html.dark) .dropbtn {
+  color: #f1f5f9;
+}
+:global(html.dark) .theme-toggle {
+  background: #334155;
+  color: #f1f5f9;
+  border-color: #475569;
+}
+.theme-toggle .light-label {
+  display: inline;
+}
+.theme-toggle .dark-label {
+  display: none;
+}
+:global(html.dark) .theme-toggle .light-label {
+  display: none;
+}
+:global(html.dark) .theme-toggle .dark-label {
+  display: inline;
 }
