@@ -1,7 +1,18 @@
 ---
-import { Image } from "astro:assets";
-import Logo from "../images/Logo.png";
+import { Image } from 'astro:assets';
+import Logo from '../images/Logo.png';
 ---
+
+<script>
+function DropdownAnimation(){
+  const dropdownContent = document.getElementById('dropdownContent');
+  const dropdownButton = document.getElementById('dropdownButton');
+
+  
+}
+
+</script>
+
 <style>
 .middle-bar {
   position: fixed;
@@ -63,126 +74,50 @@ ul a {
   background: black;
   height: 1px;
 }
-.theme-toggle{
-  padding: 8px 12px;
-  border-radius: 6px;
-  cursor: pointer;
-  border: 1px solid #ccc;
-  background: #e2e8f0;
-  color: #1e293b;
-  margin-top: 10px;
-}
 
-/* Dark mode overrides */
-:global(html.dark) body {
-  background: #0f172a;
-  color: #f1f5f9;
-}
-:global(html.dark) .middle-bar {
-  background: hsla(220, 30%, 15%, 0.9);
-}
-:global(html.dark) ul a,
-:global(html.dark) .dropbtn {
-  color: #f1f5f9;
-}
-:global(html.dark) .dropdown-content {
-  background: #1e293b;
-}
-:global(html.dark) .header {
-  color: #94a3b8;
-}
-:global(html.dark) .header-distance,
-:global(html.dark) .dropdown-end {
-  background: #475569;
-}
-:global(html.dark) .theme-toggle {
-  background: #334155;
-  color: #f1f5f9;
-  border-color: #475569;
-}
 
-.theme-toggle .light-label { display: inline; }
-.theme-toggle .dark-label { display: none; }
-:global(html.dark) .theme-toggle .light-label { display: none; }
-:global(html.dark) .theme-toggle .dark-label { display: inline; }
 </style>
 
-<nav class="middle-bar">
-  <div class="small-image">
-    <a href="/index">
-      <Image src={Logo} alt={"Zenith.inc"} height={200} width={100}/>
+<nav class='middle-bar'>
+  <div class='small-image'>
+    <a href='/index'>
+      <Image src={Logo} alt={'Zenith.inc'} height={200} width={100}/>
     </a>
   </div>
   <ul>
     <li>
-       <a id="dropdownBtn" class="dropbtn"> Albums </a>
-        <ul id="dropdownContent" class="dropdown-content">
-            <h1 class="header">Film</h1>
-            <div class="header-distance">
+       <a id='dropdownButton' class='dropbtn'> Albums </a>
+        <ul id='dropdownContent' class='dropdown-content'>
+            <h1 class='header'>Film</h1>
+            <div class='header-distance'>
             </div>
-            <li class="button-distance">
-              <a href="">Color</a>
+            <li class='button-distance'>
+              <a href=''>Color</a>
             </li>
-            <li class="button-distance">
-              <a href="">B&W</a>
+            <li class='button-distance'>
+              <a href=''>B&W</a>
             </li>
-            <h1 class="header">Digital</h1>
-            <li class="button-distance">
-              <a href="">Nature</a>
+            <h1 class='header'>Digital</h1>
+            <li class='button-distance'>
+              <a href=''>Nature</a>
             </li>
-            <li class="button-distance">
-              <a href="">Urban Landscape</a>
+            <li class='button-distance'>
+              <a href=''>Urban Landscape</a>
             </li>
-            <div class="dropdown-end">
+            <div class='dropdown-end'>
             </div>
         </ul>
     </li>
     <li>
-      <a href="/about">About</a>
+      <a href='/about'>About</a>
     </li>
     <li>
-      <a href="/contact">Contact</a>
+      <a href='/contact'>Contact</a>
     </li>
   </ul>
-  <button id="theme-toggle" class="theme-toggle">
-    <span class="light-label">Dark Mode</span>
-    <span class="dark-label">Light Mode</span>
+  <button id='theme-toggle' class='theme-toggle'>
+    <span class='light-label'>Dark Mode</span>
+    <span class='dark-label'>Light Mode</span>
   </button>
 </nav>
 
-<script>
-const dropdownButton = document.getElementById('dropdownBtn')
-const dropdownContent = document.getElementById('dropdownContent')
-dropdownButton?.addEventListener('click', () => {
-  if (dropdownContent) {
-    dropdownContent.style.display =
-      dropdownContent.style.display === 'block' ? 'none' : 'block';
-  }
-});
-window.addEventListener('click', (event) => {
-  if (
-    dropdownButton &&
-    dropdownContent &&
-    !dropdownButton.contains(event.target as Node)
-  ) {
-    dropdownContent.style.display = 'none';
-  }
-});
-
-const handleToggle = () => {
-  const element = document.documentElement;
-  element.classList.toggle("dark");
-  const isDark = element.classList.contains("dark");
-  localStorage.setItem("theme", isDark ? "dark" : "light");
-};
-
-document.getElementById("theme-toggle")?.addEventListener("click", handleToggle);
-
-document.addEventListener("astro:after-swap", () => {
-  if (localStorage.getItem("theme") === "dark") {
-    document.documentElement.classList.add("dark");
-  } else {
-    document.documentElement.classList.remove("dark");
-  }
-});
-</script>
