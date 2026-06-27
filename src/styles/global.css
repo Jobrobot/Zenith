@@ -14,9 +14,10 @@ body {
   overflow-x: auto;
   overflow-y: hidden;
   scrollbar-width: none;
-  background-color: hsla(189, 100%, 96%, 0.802);
+  background-color: #d0f8ff;
 }
 
+/*  The Main Page */
 .gallery-container {
   display: flex;
   align-items: center;
@@ -32,170 +33,82 @@ body {
   gap: 2rem;
 }
 
-.middle-bar {
-  position: fixed;
-  height: 100vh;
-  width: 170px;
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+}
+
+@import url("https://fonts.googleapis.com/css2?family=Anton&display=swap");
+
+.contact {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  background: #d0f8ff;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  background: hsla(190, 100%, 86%, 0.9);
-  backdrop-filter: blur(6px);
-  z-index: 10;
 }
 
-.small-image img {
-  height: 100px;
-  width: 100px;
+.contact-text {
+  text-align: center;
+  line-height: 0.85;
+  z-index: 2;
+}
+
+.contact-text h1 {
+  font-family: "Anton", Impact, sans-serif;
+  font-size: clamp(400px, 1px, 1px);
+  text-transform: uppercase;
+  margin: 0;
+  letter-spacing: -3px;
+}
+
+.contact-text h1 strong {
+  color: #35220a;
   display: block;
-  object-fit: cover;
-  margin: 0 auto;
-  border-radius: 50%;
 }
 
-nav {
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
+.contact-text h1 .sub {
+  color: #35220a;
+  display: block;
 }
 
-ul a {
-  color: black;
-  text-decoration: none;
-  display: inline-block;
-  padding: 0 1px;
-  width: 120px;
-  text-align: center;
-}
-
-.dropbtn {
-  color: black;
-  display: inline-block;
-  width: 120px;
-  text-align: center;
-  cursor: pointer;
-}
-
-.dropdown-content {
-  display: none;
+.flowing-wrap {
   position: absolute;
+  top: 50%;
+  width: 110%;
+  transform: rotate(-8deg);
+  z-index: 3;
 }
 
-.dropdown-end {
-  height: 1px;
-  background: black;
-  margin-top: 7px;
+.flowing-band {
+  background: #fe9518;
+  padding: 30px 0;
 }
 
-.button-distance {
-  margin-top: 5px;
-}
-
-.header {
-  color: gray;
-}
-
-.header-distance {
-  background: black;
-  height: 1px;
-}
-
-.middle-bar {
-  position: fixed;
-  height: 100vh;
-  width: 170px;
-  display: flex;
-  flex-direction: column;
+.flowing-item {
+  font-family: "Anton", Impact, sans-serif;
+  font-size: 18px;
+  color: #35220a;
+  text-transform: uppercase;
+  padding: 0 24px;
+  display: inline-flex;
   align-items: center;
-  justify-content: center;
-  background: hsla(190, 100%, 86%, 0.9);
-  backdrop-filter: blur(6px);
-  z-index: 10;
+  gap: 16px;
 }
 
-.small-image img {
-  height: 100px;
-  width: 100px;
-  display: block;
-  object-fit: cover;
-  margin: 0 auto;
-  border-radius: 50%;
-}
-nav {
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-}
-ul a {
-  color: black;
-  text-decoration: none;
-  display: inline-block;
-  padding: 0 1px;
-  width: 120px;
-  text-align: center;
-}
-.dropbtn {
-  color: black;
-  display: inline-block;
-  width: 120px;
-  text-align: center;
-  cursor: pointer;
-}
-.dropdown-content {
-  display: none;
+.insta-link {
   position: absolute;
-}
-.dropdown-end {
-  height: 1px;
-  background: black;
-  margin-top: 7px;
-}
-.button-distance {
-  margin-top: 5px;
-}
-.header {
-  color: gray;
-}
-.header-distance {
-  background: black;
-  height: 1px;
-}
-.theme-toggle {
-  padding: 8px 12px;
-  border-radius: 6px;
-  cursor: pointer;
-  border: 1px solid #ccc;
-  background: #e2e8f0;
-  color: #1e293b;
-  margin-top: 10px;
+  bottom: 32px;
+  right: 32px;
+  z-index: 5;
 }
 
-:global(html.dark) {
-  background: #0f172a;
-  color: #f1f5f9;
-}
-:global(html.dark) .middle-bar {
-  background: hsla(220, 30%, 15%, 0.9);
-}
-:global(html.dark) ul a,
-:global(html.dark) .dropbtn {
-  color: #f1f5f9;
-}
-:global(html.dark) .theme-toggle {
-  background: #334155;
-  color: #f1f5f9;
-  border-color: #475569;
-}
-.theme-toggle .light-label {
-  display: inline;
-}
-.theme-toggle .dark-label {
-  display: none;
-}
-:global(html.dark) .theme-toggle .light-label {
-  display: none;
-}
-:global(html.dark) .theme-toggle .dark-label {
-  display: inline;
+.insta-link img {
+  width: 40px;
+  height: 40px;
 }
