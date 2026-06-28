@@ -14,10 +14,13 @@ import '../styles/global.css'
   <body>
     <slot />
     <script>
+      
       let velocity  = 0;
       let isGliding = false;
+
       const SENSITIVITY = .1; 
       const FRICTION    = 0.96;
+      
       document.addEventListener("wheel", (e) => {
         e.preventDefault();
         velocity += e.deltaY * SENSITIVITY;
@@ -26,6 +29,7 @@ import '../styles/global.css'
           requestAnimationFrame(glide);
         }
       }, { passive: false });
+
       function glide() {
         if (Math.abs(velocity) < 0.5) {
           velocity  = 0;
