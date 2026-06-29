@@ -1,19 +1,45 @@
+@import url("https://fonts.googleapis.com/css2?family=Anton&display=swap");
 @import "tailwindcss";
 
 html {
-  background-color: #ffffff;
+  background-color: #d0f8ff;
   color: #000000;
   overflow-x: hidden;
 }
 
-body {
-  overflow-x: auto;
-  overflow-y: hidden;
-  scrollbar-width: none;
-  background-color: #d0f8ff;
+/* Dark Mode Toggle*/
+html.dark .middle-bar {
+  background-color: #10353b;
 }
 
-/*  The Main Page */
+html.dark {
+  background-color: #1a5761;
+}
+
+html.dark .page-link {
+  background: #81305f;
+}
+
+html.dark .contact {
+  background-color: #1a5761;
+}
+
+html.dark .flowing-band {
+  background-color: #81305f;
+}
+
+html.dark .contact-text {
+  color: white;
+}
+
+html.dark .dropbtn {
+  color: white;
+}
+
+.dark a {
+  color: white;
+}
+/*  The Index.astro */
 .gallery-container {
   display: flex;
   align-items: center;
@@ -27,4 +53,133 @@ body {
   display: flex;
   align-items: center;
   gap: 2rem;
+}
+
+/*For The Menu.astro */
+nav {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+ul a {
+  color: black;
+  text-decoration: none;
+  display: inline-block;
+  padding: 0 1px;
+  width: 120px;
+  text-align: center;
+}
+.dropbtn {
+  color: black;
+  display: inline-block;
+  width: 120px;
+  text-align: center;
+  cursor: pointer;
+}
+.dropdown-content {
+  display: none;
+  position: absolute;
+}
+
+.header-distance {
+  background: black;
+  height: 1px;
+}
+
+.page-link {
+  background-color: #ff65bf;
+  margin-bottom: 25px;
+  border-radius: 7px;
+}
+
+.middle-bar {
+  position: fixed;
+  height: 100vh;
+  width: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  list-style-type: none;
+  background: hsla(190, 88%, 68%, 0.9);
+  backdrop-filter: blur(6px);
+  z-index: 10;
+}
+
+.small-image img {
+  height: 100px;
+  width: 100px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+/*For Constact.astro*/
+
+.contact {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  background: #d0f8ff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.contact-text {
+  text-align: center;
+  line-height: 0.85;
+  z-index: 2;
+  color: rgb(43, 60, 70);
+}
+
+.contact-text h1 {
+  font-family: "Anton", Impact, sans-serif;
+  font-size: clamp(400px, 1px, 1px);
+  text-transform: uppercase;
+  margin: 0;
+  letter-spacing: -3px;
+}
+
+.contact-text h1 strong {
+  display: block;
+}
+
+.contact-text h1 .sub {
+  display: block;
+}
+
+.flowing-wrap {
+  position: absolute;
+  top: 50%;
+  width: 110%;
+  transform: rotate(-8deg);
+  z-index: 3;
+}
+
+.flowing-band {
+  background: #ff65bf;
+  padding: 30px 0;
+}
+
+.flowing-item {
+  font-family: "Anton", Impact, sans-serif;
+  font-size: 18px;
+  color: #35220a;
+  text-transform: uppercase;
+  padding: 0 24px;
+  display: inline-flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.insta-link {
+  position: absolute;
+  bottom: 32px;
+  right: 32px;
+  z-index: 5;
+}
+
+.insta-link img {
+  width: 40px;
+  height: 40px;
 }
